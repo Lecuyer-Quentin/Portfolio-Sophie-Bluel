@@ -1,0 +1,314 @@
+
+.hide{
+    opacity: 0;
+}
+
+/**Login**/
+.login-modal-container{
+    width: 100%;
+    height: 65vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.login-modal-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.login-modal-form-group{
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: start;
+}
+.login-modal-form-group-label{
+    position: relative;
+    top: 10px;
+}
+.login-modal-form-group-input{
+    width: 380px;
+    height: 50px;
+    border: none;
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+
+/**Gallery**/
+.gallery{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.gallery-container{
+    width: 75vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.btn-toggle-container{
+    /* width: 55vw; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.btn-toggle-all, .btn-toggle{
+    font-family: 'Syne';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    color: #1D6154;
+    background-color: white;
+    border-color: #1D6154;
+    border-radius: 60px;
+    margin: .8em;
+    padding: .6em .5em;
+}
+.btn-toggle:hover, .btn-toggle-all:hover{
+    background-color: #1D6154;
+    color: white;
+}
+.gallery-projects{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+}
+.project{
+    width: 310px;
+    height: 413px;
+}
+.project-image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/**Admin**/
+/**Banner**/
+.banner{
+    height: 60px;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.banner-btn, .banner-title, .banner-logo{
+    padding: 0 15px;
+}
+.banner-btn{
+    border-radius: 60px;
+    width: 180px;
+    height: 36px;
+}
+/**Modification Gallery**/
+.modif{
+    position: relative;
+    left: 150px;
+    bottom: 33px;
+}
+.modif-btn{
+    background-color: white;
+    border: none;
+}
+.modif-btn:hover{
+    background-color: #1D6154;
+    color: white;
+    border-radius: 5px;
+}
+
+/**Modal Gallery**/
+.modal-gallery{
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+}
+.modal-container{
+    background-color: white;
+    width: 630px;
+    height: 680px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 10px;
+}
+.modal-gallery-header{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.modal-gallery-header-title{
+    font-family: 'Syne';
+    font-style: normal;
+    font-weight: 700;
+    color: black;
+}
+.modal-gallery-close-btn, .modal-gallery-btn-return{
+    background-color: white;
+    border: none;
+    position: relative;
+    bottom: 20px;
+}
+.modal-gallery-container{
+    width: 480px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 2px;
+    position: relative;
+    bottom: 30px;
+}
+.gallery-modal-item{
+    height: 130px;
+}
+.gallery-modal-item-img{
+    width: 84px;
+    height: 110px;
+    object-fit: cover;
+}
+.gallery-modal-item-btn{
+    background-color: black;
+    color: white;
+    position: relative;
+    bottom: 120px;
+    left: 42px;
+}
+.gallery-modal-item-edit{
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    color: #000000;
+    position: relative;
+    bottom: 20px;
+    right: 38px;
+}
+.modal-deco-container{
+    width: 70%;
+    height: 2px;
+    background: linear-gradient(to right, grey 0%, grey 100%);
+    background-size: 20em 1px;
+    background-repeat: no-repeat; 
+}
+.modal-gallery-btn-add{
+    width: 237px;
+    height: 36px;
+    background-color: #1D6154;
+    border-radius: 60px;
+    color: white;
+}
+.modal-gallery-delete{
+    text-decoration: none;
+    color: red;
+    font-family: 'Syne';
+    font-style: normal;
+    font-size: 14px;
+}
+.modal-gallery-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    height: 550px;
+    width: 430px;
+}
+.modal-gallery-form-preview{
+    width: 420px;
+    height: 220px;
+    background-color: #E8F1F7;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.modal-gallery-form-preview-img{
+    width: 150px;
+    height: 250px;
+    object-fit: cover;
+    z-index: 2;
+    position: relative;
+    top: 22px;
+}
+.modal-gallery-form-preview-icons{
+   position: relative;
+   bottom: 60px;
+}
+
+.modal-gallery-form-input{
+    position : relative;
+    left: 65px;
+    bottom: 10px;
+    top: 8px;
+    z-index: 4;
+    opacity: 0;
+}
+
+.modal-gallery-form-input-btn{
+    width: 160px;
+    height: 40px;
+    background-color: #CBD6DC;
+    color: #306685;
+    border-radius: 50px;
+    border: none;
+    position: relative;
+    bottom: 10px;
+}
+.modal-gallery-form-text{
+    font-family: 'Work Sans';
+    font-weight: 400;
+    font-size: 12px;
+    color: #000000;
+    position: relative;
+    bottom: 7px;
+}
+
+.modal-gallery-form-label-title, .modal-gallery-form-label-select{
+    font-family: 'Work Sans';
+    font-weight: 400;
+    font-size: 12px;
+    color: #000000;
+    position: relative;
+    top: 20px;
+}
+.modal-gallery-form-label-title{
+    right: 200px;
+}
+.modal-gallery-form-label-select{
+    right: 185px;
+}
+.modal-gallery-form-input-title, .modal-gallery-form-select{
+    width: 420px;
+    height: 51px;
+    border: none;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+.modal-gallery-form-btn{
+    width: 237px;
+    height: 36px;
+    background-color: #1D6154;
+    border-radius: 60px;
+    color: white;
+    position: relative;
+    bottom: 10px;
+}
