@@ -72,7 +72,7 @@
     margin: .8em;
     padding: .6em .5em;
 }
-.btn-toggle:hover, .btn-toggle-all:hover{
+.btn-toggle:hover, .btn-toggle-all:hover, .btn-toggle--active{
     background-color: #1D6154;
     color: white;
 }

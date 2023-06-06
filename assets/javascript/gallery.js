@@ -20,6 +20,9 @@ export class Gallery{
         this.galleryContainer.setAttribute("class", "gallery-container")
         this.root.appendChild(this.galleryContainer)
 
+        //* Variable
+        this.buttonToggle = []
+
         //*Appel des méthodes de la class
         this.createToggle()
         this.createGalleryAll()
@@ -38,7 +41,11 @@ export class Gallery{
         this.btnToggleAll.setAttribute('class', 'btn-toggle-all')
         this.btnToggleAll.setAttribute('id', 'btn-toggle-all')
         this.btnToggleAll.textContent = 'Tous'
+        this.btnToggleAll.classList.add('btn-toggle--active')
         this.btnToggleContainer.appendChild(this.btnToggleAll)
+        
+        this.buttonToggle.push(this.btnToggleAll) //? On push le btnToggleAll dans le tableau buttonToggle
+        this.activateBtnToggle()
 
         //* EventListener sur le btnToggleAll
         this.btnToggleAll.addEventListener('click', () => {
@@ -55,6 +62,9 @@ export class Gallery{
                 this.btnToggle.setAttribute('id', category.name)
                 this.btnToggle.textContent = category.name
                 this.btnToggleContainer.appendChild(this.btnToggle)
+                
+                this.buttonToggle.push(this.btnToggle) //? On push le btnToggle dans le tableau buttonToggle
+                this.activateBtnToggle()
 
                 //* EventListener sur les btnToggle
                 this.btnToggle.addEventListener('click', () => {
@@ -75,6 +85,18 @@ export class Gallery{
             })
         })
     }
+
+    activateBtnToggle(){
+        this.buttonToggle.forEach(btnToggle => {
+            btnToggle.addEventListener('click', () => {
+                this.buttonToggle.forEach(btnToggle => {
+                    btnToggle.classList.remove('btn-toggle--active')
+                })
+                btnToggle.classList.add('btn-toggle--active')
+            })
+        })
+            
+        }
 
 
     /**
@@ -117,6 +139,7 @@ export class Gallery{
         this.projectTitle.textContent = data.title
         this.project.appendChild(this.projectTitle)
     }
+
     /**
      * * Création de la div gallery-projects
      * @param {Objets} category
