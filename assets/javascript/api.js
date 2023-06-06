@@ -98,30 +98,3 @@ export async function fetchToAdd(formAddData){
         console.log(error)
     }
 }
-
-// //* Fetching for users logout
-// export async function fetchToLogout(){
-//     try {
-//         await fetch(`http://localhost:5678/api/users/logout`,{
-//             method: 'POST', //? Méthode de la requête
-//             headers: {
-//                 'Accept': 'application/json', //? Type de contenu accepté par le client
-//                 'Content-Type': 'application/json', //? Type de contenu envoyé par le client
-//                 'Authorization': `Bearer ${localStorage.getItem('token')}` //? Token d'authentification
-//             },
-//         })
-//         .then(response => { //? Réponse du serveur (données reçues) 
-//             if(response.ok){ //? Si la réponse est ok
-//                 console.log(response)
-//                 return response.json() //? Retourne les données au format json
-//             }
-//             throw new Error('Une erreur est survenue')
-//         })
-//         .then(user => { //? Données reçues au format json
-//             localStorage.removeItem('token') //? Supprime le token du localStorage
-//         })
-
-//     } catch (error) {
-//         alert(error)
-//     }
-// }

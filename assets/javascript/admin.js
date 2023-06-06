@@ -365,7 +365,6 @@ export class AdminModalGallery extends Admin{ //todo : Ajouter action/éditer un
             this.modalGalleryForm.setAttribute('class', 'modal-gallery-form')
             this.modalGalleryForm.setAttribute('method', 'POST')
             this.modalGalleryForm.setAttribute('action','' )
-            // this.modalGalleryForm.setAttribute('url', ``)
             this.modalGalleryForm.setAttribute('enctype', 'multipart/form-data')
             this.modalContainer.appendChild(this.modalGalleryForm)
 
