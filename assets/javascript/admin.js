@@ -1,3 +1,4 @@
+
 import { allData , fetchToDelete , fetchToAdd } from "./api.js"
 
 
@@ -126,7 +127,7 @@ export class AdminModifImg extends Admin{ //todo : Ajouter action pour modifier 
 
     //* ----------Event----------- *//
         this.modifBtn.addEventListener('click', () => {
-            alert('Modifier l\'image') //todo
+            alert('Modifier l\'image')
         })
     } 
 }
@@ -173,7 +174,7 @@ export class AdminModalGallery extends Admin{ //todo : Ajouter action/éditer un
         this.createAdminModalHeader()
 
         //? Creation de la galerie
-        this.createAdminModalGallery() //!! Attention A surveiller
+        this.createAdminModalGallery()
 
         //? Creation du Footer de la modal
         this.createAdminModalFooter()
@@ -210,10 +211,7 @@ export class AdminModalGallery extends Admin{ //todo : Ajouter action/éditer un
     }
     
     //* -----------Methods--------------- *//
-    /**
-     * * Création du Header de la modal
-     * @description Création du Header de la modal
-     */
+  
     createAdminModalHeader(){
         //? Creation du Header de la modal
         this.modalGalleryHeader = document.createElement('div')
@@ -247,11 +245,6 @@ export class AdminModalGallery extends Admin{ //todo : Ajouter action/éditer un
         this.modalGalleryCloseBtn.appendChild(this.modalGalleryCloseBtnIcon)
     }
 
-    /**
-     * * Création de la galerie
-     * @description Création de la galerie
-     * @returns {HTMLElement} modalGalleryContainer
-     */
     createAdminModalGallery(){
         //? Creation du Container de la galerie
         this.modalGalleryContainer = document.createElement('div')
@@ -259,7 +252,6 @@ export class AdminModalGallery extends Admin{ //todo : Ajouter action/éditer un
         this.modalContainer.appendChild(this.modalGalleryContainer)
 
         /**
-         * * Création des items de la galerie
          * @description Création des items de la galerie
          * @returns {HTMLElement} item
          */
@@ -326,6 +318,7 @@ export class AdminModalGallery extends Admin{ //todo : Ajouter action/éditer un
             }
          })
     }
+
     createAdminModalFooter(){
         //? Creation du Container de la decoration
         this.modalDecoContainer = document.createElement('div')
@@ -346,7 +339,9 @@ export class AdminModalGallery extends Admin{ //todo : Ajouter action/éditer un
         this.modalDeleteGallery.innerText = 'Supprimer la galerie'
         this.modalContainer.appendChild(this.modalDeleteGallery)
     }
+
     createAdminModalAddImg(){
+
              //? Appel du header
             this.modalContainer.appendChild(this.modalGalleryHeader)
 
@@ -372,7 +367,6 @@ export class AdminModalGallery extends Admin{ //todo : Ajouter action/éditer un
             this.modalGalleryFormPreview = document.createElement('div')
             this.modalGalleryFormPreview.setAttribute('class', 'modal-gallery-form-preview')
             this.modalGalleryForm.appendChild(this.modalGalleryFormPreview)
-
             this.modalGalleryFormPreviewImg = document.createElement('img')
             this.modalGalleryFormPreviewImg.setAttribute('class', 'modal-gallery-form-preview-img')
             this.modalGalleryFormPreviewImg.setAttribute('accept', 'jpg, png')
@@ -406,14 +400,14 @@ export class AdminModalGallery extends Admin{ //todo : Ajouter action/éditer un
 
             //? Affichage de l'image dans la preview
             this.modalGalleryFormInput.addEventListener('change', () => {
-                //? createObjectURL permet de créer une url temporaire pour l'image sélectionnée dans le formulaire 
-                this.modalGalleryFormPreviewImg.setAttribute('src', URL.createObjectURL(this.modalGalleryFormInput.files[0]))
+                this.modalGalleryFormPreviewImg.setAttribute('src', URL.createObjectURL(this.modalGalleryFormInput.files[0]))                                //? createObjectURL permet de créer une url temporaire pour l'image sélectionnée dans le formulaire 
             })
 
             //? Creation du bouton d'ajout d'image
             this.modalGalleryFormInputBtn = document.createElement('button')
             this.modalGalleryFormInputBtn.setAttribute('class', 'modal-gallery-form-input-btn')
             this.modalGalleryFormInputBtn.setAttribute('for', 'image')
+            this.modalGalleryFormInputBtn.setAttribute('type', 'button')
             this.modalGalleryFormInputBtn.innerText = '+ Ajouter photo'
             this.modalGalleryFormPreview.appendChild(this.modalGalleryFormInputBtn)
             
@@ -476,17 +470,15 @@ export class AdminModalGallery extends Admin{ //todo : Ajouter action/éditer un
             //? Creation du bouton de validation du formulaire
             this.modalGalleryFormBtn = document.createElement('button')
             this.modalGalleryFormBtn.setAttribute('class', 'modal-gallery-form-btn')
-            this.modalGalleryFormBtn.setAttribute('type', 'submit')
+            this.modalGalleryFormBtn.setAttribute('type', 'button')
             this.modalGalleryFormBtn.innerText = 'Valider'
             this.modalGalleryForm.appendChild(this.modalGalleryFormBtn)   
 
             //? Écoute des changements dans le formulaire
             this.modalGalleryForm.addEventListener('change', (e) => {
                 e.preventDefault()
-            //? Création de l'objet FormData
-            //? FormData permet de créer un objet contenant les données du formulaire
-            //? On peut ensuite envoyer cet objet au serveur via une requête Fetch
-                this.formAddData = new FormData(this.modalGalleryForm)         
+                //? Création de l'objet FormData
+                this.formAddData = new FormData(this.modalGalleryForm)                 //? FormData permet de créer un objet contenant les données du formulaire    
             })
 
             //? Écoute du click sur le bouton de validation du formulaire

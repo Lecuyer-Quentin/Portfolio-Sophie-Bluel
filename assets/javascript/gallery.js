@@ -1,3 +1,5 @@
+
+
 import { allData, categories } from "./api.js"
 
 /**
@@ -27,6 +29,7 @@ export class Gallery{
         this.createToggle()
         this.createGalleryAll()
     }
+
     /**
      * * Création de la div btn-toggle-container
      * * Création du bouton btn-toggle-all
@@ -37,14 +40,15 @@ export class Gallery{
         this.btnToggleContainer = document.createElement('div')
         this.btnToggleContainer.setAttribute('class', 'btn-toggle-container')
         this.galleryContainer.appendChild(this.btnToggleContainer)
+
+        //* Création du bouton btn-toggle-all
         this.btnToggleAll = document.createElement('button')
         this.btnToggleAll.setAttribute('class', 'btn-toggle-all')
         this.btnToggleAll.setAttribute('id', 'btn-toggle-all')
         this.btnToggleAll.textContent = 'Tous'
         this.btnToggleAll.classList.add('btn-toggle--active')
         this.btnToggleContainer.appendChild(this.btnToggleAll)
-        
-        this.buttonToggle.push(this.btnToggleAll) //? On push le btnToggleAll dans le tableau buttonToggle
+        this.buttonToggle.push(this.btnToggleAll)
         this.activateBtnToggle()
 
         //* EventListener sur le btnToggleAll
@@ -54,6 +58,7 @@ export class Gallery{
             //? On appelle la méthode createGalleryAll
             this.createGalleryAll()
         })
+        
         //* On loop sur les catégories
         categories().then(data => {
             data.forEach(category => {
@@ -63,7 +68,7 @@ export class Gallery{
                 this.btnToggle.textContent = category.name
                 this.btnToggleContainer.appendChild(this.btnToggle)
                 
-                this.buttonToggle.push(this.btnToggle) //? On push le btnToggle dans le tableau buttonToggle
+                this.buttonToggle.push(this.btnToggle)
                 this.activateBtnToggle()
 
                 //* EventListener sur les btnToggle
@@ -80,8 +85,7 @@ export class Gallery{
                         this.galleryProjects.style.display = 'none'
                         this.createGalleryByCategory(category.name)
                     }
-                })
-                  
+                }) 
             })
         })
     }
@@ -153,9 +157,7 @@ export class Gallery{
         //* On loop sur les datas
         allData().then(datas => {
             datas.forEach(data => {
-                //? On vérifie si la catégorie de la data est égale à la catégorie cliqué
                 if(data.category.name === category){
-                    //? On appelle la méthode createGallery
                     this.createGallery(data)
                 }
             })

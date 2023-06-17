@@ -111,12 +111,9 @@
     height: 36px;
 }
 /**Modification Gallery**/
-.modif{
-    position: relative;
-    left: 150px;
-    bottom: 33px;
-}
 .modif-btn{
+    display: flex;
+    flex-direction: row-reverse;
     background-color: white;
     border: none;
 }
@@ -124,6 +121,21 @@
     background-color: #1D6154;
     color: white;
     border-radius: 5px;
+}
+#admin-modif-img{
+    position: relative;
+    left: 9%;
+    top: 5px;
+}
+#admin-modif-text{
+    position: relative;
+    bottom: 15%;
+    right: 1%;
+}
+#admin-modif{
+    position: absolute;
+    left: 57%;
+    bottom: 55px;
 }
 
 /**Modal Gallery**/
@@ -187,8 +199,8 @@
     background-color: black;
     color: white;
     position: relative;
-    bottom: 120px;
-    left: 42px;
+    bottom: 112px;
+    left: 55px;
 }
 .gallery-modal-item-edit{
     font-family: 'Work Sans';
@@ -198,14 +210,14 @@
     line-height: 14px;
     color: #000000;
     position: relative;
-    bottom: 20px;
-    right: 38px;
+    bottom: 5px;
+    right: 28px;
 }
 .modal-deco-container{
     width: 70%;
     height: 2px;
     background: linear-gradient(to right, grey 0%, grey 100%);
-    background-size: 20em 1px;
+    background-size: 50em 1px;
     background-repeat: no-repeat; 
 }
 .modal-gallery-btn-add{

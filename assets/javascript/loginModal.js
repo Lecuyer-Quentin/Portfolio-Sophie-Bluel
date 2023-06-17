@@ -1,10 +1,8 @@
+
+
 import { fetchToLogin } from "./api.js"
 
 /**
- * * Class LoginModal
- * @classdesc Class qui permet de créer un formulaire de connexion
- * @property {HTMLElement} element - L'élément du DOM qui contiendra le formulaire de connexion
- * @property {HTMLElement} root - La div qui contiendra le formulaire de connexion
  * @param {HTMLElement} element
  * @returns {LoginModal}
  */
@@ -25,10 +23,7 @@ export class LoginModal{
         this.createFormulaire()
         this.getLogin()
     }
-    /**
-     * * Méthode qui permet de créer le formulaire de connexion
-     * @memberof LoginModal
-     */
+    
      createFormulaire(){
          //? Creation du login-modal-container
         this.loginModalContainer = document.createElement('div')
@@ -114,16 +109,17 @@ export class LoginModal{
         this.loginModalFooterLink.setAttribute('href', '#')
         this.loginModalFooterLink.textContent = 'Mot de passe oublié ?'
         this.loginModalFooter.appendChild(this.loginModalFooterLink)
-    }
+     }
+    
     /**
      * * Méthode qui permet de récupérer les données du formulaire
-     * @memberof LoginModal
      * @param {string} user.email - L'email de l'utilisateur
      * @param {string} user.password - Le mot de passe de l'utilisateur
+     * @returns {object} user - L'objet user
      */
      getLogin(){
         //? On récupère les éléments du formulaire
-        this.loginModalForm.addEventListener('input', () => { //? On écoute les changements dans le formulaire
+        this.loginModalForm.addEventListener('input', () => { 
             this.user = {
                 email: this.loginModalFormGroupInputEmail.value,
                 password: this.loginModalFormGroupInputPassword.value,
@@ -131,8 +127,8 @@ export class LoginModal{
 
         //? On écoute la soumission du formulaire
         this.loginModalForm.addEventListener('submit', (e) => {
-            e.preventDefault() //? On empêche le rechargement de la page
-            fetchToLogin(this.user) //? On envoie les données à l'API
+            e.preventDefault()                                                          
+            fetchToLogin(this.user)                                                     
         })
     }
 }
