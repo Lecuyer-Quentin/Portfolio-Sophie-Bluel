@@ -51,7 +51,6 @@
     align-items: center;
 }
 .btn-toggle-container{
-    /* width: 55vw; */
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -132,10 +131,17 @@
     bottom: 15%;
     right: 1%;
 }
+
 #admin-modif{
-    position: absolute;
-    left: 57%;
-    bottom: 55px;
+    position: relative;
+    bottom: 12px;
+    left: 2px;
+}
+#portfolio > div:nth-of-type(1){
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
 }
 
 /**Modal Gallery**/
