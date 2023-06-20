@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 //* Appel de la class LoginModal
-const loginModal = document.querySelector('.login-modal')
+const loginModal = document.querySelector('#login-modal')
 loginModal.addEventListener('click', () => {
     new LoginModal(document.querySelector('#login-modal'))
 })
