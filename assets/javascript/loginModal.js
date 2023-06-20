@@ -21,6 +21,7 @@ export class LoginModal{
 
         //*-------Methods-------*//
         this.createFormulaire()
+        this.getReturn()
         this.getLogin()
     }
     
@@ -131,6 +132,12 @@ export class LoginModal{
             fetchToLogin(this.user)                                                     
         })
      }
+    getReturn() {
+        const returnBtn = document.querySelector('.login-modal')
+        returnBtn.addEventListener('click', () => {
+            location.reload()
+        })
+     }
 }
 
 function getLogout() {
@@ -139,7 +146,7 @@ function getLogout() {
         logoutBtn.textContent = 'logout'
         logoutBtn.addEventListener('click', () => {
             localStorage.removeItem('token')
-                location.reload()
+            location.reload()
             })
         }
 }
