@@ -130,5 +130,17 @@ export class LoginModal{
             e.preventDefault()                                                          
             fetchToLogin(this.user)                                                     
         })
-    }
+     }
 }
+
+function getLogout() {
+    if (localStorage.getItem('token')) {
+        const logoutBtn = document.querySelector('.login-modal')
+        logoutBtn.textContent = 'logout'
+        logoutBtn.addEventListener('click', () => {
+            localStorage.removeItem('token')
+                location.reload()
+            })
+        }
+}
+getLogout()
