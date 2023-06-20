@@ -36,58 +36,63 @@ export class Gallery{
      * * Création des boutons btn-toggle
      * @returns {Gallery}
      */
-    createToggle(){
-        this.btnToggleContainer = document.createElement('div')
-        this.btnToggleContainer.setAttribute('class', 'btn-toggle-container')
-        this.galleryContainer.appendChild(this.btnToggleContainer)
+    createToggle() {
+        if (!localStorage.getItem('token')) {
+            this.btnToggleContainer = document.createElement('div')
+            this.btnToggleContainer.setAttribute('class', 'btn-toggle-container')
+            this.galleryContainer.appendChild(this.btnToggleContainer)
 
-        //* Création du bouton btn-toggle-all
-        this.btnToggleAll = document.createElement('button')
-        this.btnToggleAll.setAttribute('class', 'btn-toggle-all')
-        this.btnToggleAll.setAttribute('id', 'btn-toggle-all')
-        this.btnToggleAll.textContent = 'Tous'
-        this.btnToggleAll.classList.add('btn-toggle--active')
-        this.btnToggleContainer.appendChild(this.btnToggleAll)
-        this.buttonToggle.push(this.btnToggleAll)
-        this.activateBtnToggle()
+            //* Création du bouton btn-toggle-all
+            this.btnToggleAll = document.createElement('button')
+            this.btnToggleAll.setAttribute('class', 'btn-toggle-all')
+            this.btnToggleAll.setAttribute('id', 'btn-toggle-all')
+            this.btnToggleAll.textContent = 'Tous'
+            this.btnToggleAll.classList.add('btn-toggle--active')
+            this.btnToggleContainer.appendChild(this.btnToggleAll)
+            this.buttonToggle.push(this.btnToggleAll)
+            this.activateBtnToggle()
 
-        //* EventListener sur le btnToggleAll
-        this.btnToggleAll.addEventListener('click', () => {
-            //? On vide la div galleryProjects
-            this.galleryProjects.style.display = 'none'
-            //? On appelle la méthode createGalleryAll
-            this.createGalleryAll()
-        })
-        
-        //* On loop sur les catégories
-        categories().then(data => {
-            data.forEach(category => {
-                this.btnToggle = document.createElement('button')
-                this.btnToggle.setAttribute('class', 'btn-toggle')
-                this.btnToggle.setAttribute('id', category.name)
-                this.btnToggle.textContent = category.name
-                this.btnToggleContainer.appendChild(this.btnToggle)
-                
-                this.buttonToggle.push(this.btnToggle)
-                this.activateBtnToggle()
-
-                //* EventListener sur les btnToggle
-                this.btnToggle.addEventListener('click', () => {
-                    if(category.name === 'Objets'){
-                        this.galleryProjects.style.display = 'none'
-                        this.createGalleryByCategory(category.name)
-                }
-                    if(category.name === 'Appartements'){
-                        this.galleryProjects.style.display = 'none'
-                        this.createGalleryByCategory(category.name)
-                }
-                    if(category.name === 'Hotels & restaurants'){
-                        this.galleryProjects.style.display = 'none'
-                        this.createGalleryByCategory(category.name)
-                    }
-                }) 
+            //* EventListener sur le btnToggleAll
+            this.btnToggleAll.addEventListener('click', () => {
+                //? On vide la div galleryProjects
+                this.galleryProjects.style.display = 'none'
+                //? On appelle la méthode createGalleryAll
+                this.createGalleryAll()
             })
-        })
+        
+            //* On loop sur les catégories
+            categories().then(data => {
+                data.forEach(category => {
+                    this.btnToggle = document.createElement('button')
+                    this.btnToggle.setAttribute('class', 'btn-toggle')
+                    this.btnToggle.setAttribute('id', category.name)
+                    this.btnToggle.textContent = category.name
+                    this.btnToggleContainer.appendChild(this.btnToggle)
+                
+                    this.buttonToggle.push(this.btnToggle)
+                    this.activateBtnToggle()
+
+                    //* EventListener sur les btnToggle
+                    this.btnToggle.addEventListener('click', () => {
+                        if(category.name === 'Objets'){
+                            this.galleryProjects.style.display = 'none'
+                            this.createGalleryByCategory(category.name)
+                    }
+                        if(category.name === 'Appartements'){
+                            this.galleryProjects.style.display = 'none'
+                            this.createGalleryByCategory(category.name)
+                    }
+                        if(category.name === 'Hotels & restaurants'){
+                            this.galleryProjects.style.display = 'none'
+                            this.createGalleryByCategory(category.name)
+                        }
+                    }) 
+                })
+            })
+            
+            
+            }
+
     }
 
     activateBtnToggle(){
